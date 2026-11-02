@@ -1,0 +1,55 @@
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+ make[1] tools/install
+ make[2] -C tools/libdeflate compile
+ make[2] -C tools/flock compile
+ make[2] -C tools/zstd compile
+ make[2] -C tools/sed compile
+ make[2] -C tools/patch compile
+ make[2] -C tools/tar compile
+ make[2] -C tools/m4 compile
+ make[2] -C tools/autoconf-archive compile
+ make[2] -C tools/ninja compile
+ make[2] -C tools/xz compile
+ make[2] -C tools/gnulib compile
+ make[2] -C tools/expat compile
+ make[2] -C tools/zlib compile
+ make[2] -C tools/cpio compile
+ make[2] -C tools/lzma compile
+ make[2] -C tools/make-ext4fs compile
+ make[2] -C tools/mtools compile
+ make[2] -C tools/patch-image compile
+ make[2] -C tools/squashfs4 compile
+ make[2] -C tools/sstrip compile
+ make[2] -C tools/zip compile
+ make[2] -C tools/autoconf compile
+ make[2] -C tools/meson compile
+ make[2] -C tools/pkgconf compile
+ make[2] -C tools/lz4 compile
+ make[2] -C tools/missing-macros compile
+ make[2] -C tools/automake compile
+ make[2] -C tools/libressl compile
+ make[2] -C tools/libtool compile
+ make[2] -C tools/dosfstools compile
+ make[2] -C tools/flex compile
+ make[2] -C tools/fakeroot compile
+ make[2] -C tools/gengetopt compile
+ make[2] -C tools/mklibs compile
+ make[2] -C tools/patchelf compile
+ make[2] -C tools/gmp compile
+ make[2] -C tools/cmake compile
+ make[2] -C tools/bison compile
+ make[2] -C tools/bc compile
+ make[2] -C tools/util-linux compile
+ make[2] -C tools/elfutils compile
+ make[2] -C tools/findutils compile
+ make[2] -C tools/mkimage compile
+ make[2] -C tools/mtd-utils compile
+ make[2] -C tools/mpfr compile
+ make[2] -C tools/e2fsprogs compile
+ make[2] -C tools/erofs-utils compile
+ make[2] -C tools/padjffs2 compile
+ make[2] -C tools/quilt compile
+ make[2] -C tools/mpc compile
+ make[2] -C tools/firmware-utils compile
