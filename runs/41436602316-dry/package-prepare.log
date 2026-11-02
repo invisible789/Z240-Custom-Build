@@ -1,0 +1,187 @@
+=================== e2fsprogs (package/utils/e2fsprogs)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/package/utils/e2fsprogs'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/e2fsprogs-1.47.4/.prepared_ed1c7292e7467f7fe7dec850af38436d_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; xzcat /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/e2fsprogs-1.47.4.tar.xz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/e2fsprogs-1.47.4/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/e2fsprogs-1.47.4 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/e2fsprogs-1.47.4/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/e2fsprogs-1.47.4
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/package/utils/e2fsprogs/patches/000-relocatable.patch using plaintext: 
+patching file lib/et/compile_et.sh.in
+patching file lib/ss/mk_cmds.sh.in
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/package/utils/e2fsprogs/patches/001-com_err_version.patch using plaintext: 
+patching file lib/et/Makefile.in
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/package/utils/e2fsprogs/patches/010-configure-make-libmagic-optional-and-configurable.patch using plaintext: 
+patching file configure
+patching file configure.ac
+patching file lib/support/plausible.c
+cp -fpR /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config.{guess,sub} /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/e2fsprogs-1.47.4/config/
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/e2fsprogs-1.47.4/.prepared_ed1c7292e7467f7fe7dec850af38436d_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/package/utils/e2fsprogs'
+time: package/utils/e2fsprogs/prepare#0.24#0.19#0.23
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+=================== chrony (package/feeds/packages/chrony)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/chrony'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/chrony-with-nts/chrony-4.9/.prepared_9cd56708b8ea0d8b8e689ca16e9c4e41_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/staging_dir/host/bin/libdeflate-gzip -dc /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/chrony-4.9.tar.gz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/chrony-with-nts/chrony-4.9/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/chrony-with-nts/chrony-4.9 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/chrony-with-nts/chrony-4.9/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/chrony-with-nts/chrony-4.9
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/chrony-with-nts/chrony-4.9/.prepared_9cd56708b8ea0d8b8e689ca16e9c4e41_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/chrony'
+time: package/feeds/packages/chrony/with-nts/prepare#0.04#0.04#0.08
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+=================== unbound (package/feeds/packages/unbound)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/unbound'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/unbound-1.26.2/.prepared_d8e501c62ed14c3417b958ea32c14a4c_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/staging_dir/host/bin/libdeflate-gzip -dc /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/unbound-1.26.2.tar.gz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/unbound-1.26.2/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/unbound-1.26.2 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/unbound-1.26.2/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/unbound-1.26.2
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/unbound/patches/010-configure-uname.patch using plaintext: 
+patching file configure.ac
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/unbound-1.26.2/.prepared_d8e501c62ed14c3417b958ea32c14a4c_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/unbound'
+time: package/feeds/packages/unbound/prepare#0.08#0.13#0.50
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+=================== vsftpd (package/feeds/packages/vsftpd)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/vsftpd-notls/vsftpd-3.0.5/.prepared_aa4ee7b0e718485a0982d7d431c5c437_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/staging_dir/host/bin/libdeflate-gzip -dc /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/vsftpd-3.0.5.tar.gz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/vsftpd-notls/vsftpd-3.0.5/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/vsftpd-notls/vsftpd-3.0.5 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/vsftpd-notls/vsftpd-3.0.5/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/vsftpd-notls/vsftpd-3.0.5
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/001-destdir.patch using plaintext: 
+patching file Makefile
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/002-find_libs.patch using plaintext: 
+patching file Makefile
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/003-chroot.patch using plaintext: 
+patching file tunables.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/004-disable-capabilities.patch using plaintext: 
+patching file sysdeputil.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/005-disable-pam.patch using plaintext: 
+patching file builddefs.h
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/006-musl-compatibility.patch using plaintext: 
+patching file sysdeputil.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/007-CVE-2015-1419.patch using plaintext: 
+patching file ls.c
+patching file str.c
+patching file str.h
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd/patches/010-openssl-deprecated.patch using plaintext: 
+patching file ssl.c
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/vsftpd-notls/vsftpd-3.0.5/.prepared_aa4ee7b0e718485a0982d7d431c5c437_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/vsftpd'
+time: package/feeds/packages/vsftpd/notls/prepare#0.03#0.05#0.13
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+=================== aria2 (package/feeds/packages/aria2)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/aria2'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/aria2-1.37.0/.prepared_4525484068938c8f475d960db55073f5_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; xzcat /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/aria2-1.37.0.tar.xz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/aria2-1.37.0/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/aria2-1.37.0 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/aria2-1.37.0/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/aria2-1.37.0
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/aria2-1.37.0/.prepared_4525484068938c8f475d960db55073f5_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/aria2'
+time: package/feeds/packages/aria2/prepare#0.08#0.09#0.14
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+=================== minidlna (package/feeds/packages/minidlna)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/minidlna-1.3.3/.prepared_616c05a14c30b8dec34eab039d2200f7_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/staging_dir/host/bin/libdeflate-gzip -dc /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/minidlna-1.3.3.tar.gz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/minidlna-1.3.3/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/minidlna-1.3.3 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/minidlna-1.3.3/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/minidlna-1.3.3
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna/patches/001-dont-build-po-files.patch using plaintext: 
+patching file Makefile.am
+patching file configure.ac
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna/patches/020-wrap_container_definitions_into_a_structure.patch using plaintext: 
+patching file containers.c
+patching file containers.h
+patching file scanner.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna/patches/030-mark_all_instances_of_magic_container_s_as_const.patch using plaintext: 
+patching file containers.c
+patching file containers.h
+patching file scanner.c
+patching file upnpsoap.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna/patches/040-heroes.patch using plaintext: 
+patching file utils.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna/patches/060-reduce_duplication_in_sql_c.patch using plaintext: 
+patching file sql.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna/patches/070-return-void.patch using plaintext: 
+patching file upnpdescgen.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna/patches/999-fix-ffmpeg-channels.patch using plaintext: 
+patching file libav.h
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/minidlna-1.3.3/.prepared_616c05a14c30b8dec34eab039d2200f7_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/multimedia/minidlna'
+time: package/feeds/packages/minidlna/prepare#0.04#0.05#0.08
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+=================== nvme-cli (package/feeds/packages/nvme-cli)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/utils/nvme-cli'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/nvme-cli-2.15/.prepared_376b45d0b0a328d2f9fb8e34dbec077a_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/staging_dir/host/bin/libdeflate-gzip -dc /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/nvme-cli-2.15.tar.gz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/nvme-cli-2.15/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/nvme-cli-2.15 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/nvme-cli-2.15/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/nvme-cli-2.15
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/utils/nvme-cli/patches/010-gcc14.patch using plaintext: 
+patching file plugins/virtium/virtium-nvme.c
+
+Applying /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/utils/nvme-cli/patches/020-nvme-print-add-fallback-for-.patch using plaintext: 
+patching file nvme-print.c
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/nvme-cli-2.15/.prepared_376b45d0b0a328d2f9fb8e34dbec077a_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/utils/nvme-cli'
+time: package/feeds/packages/nvme-cli/prepare#0.03#0.08#0.11
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+=================== libnvme (package/feeds/packages/libnvme)
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/scripts/config'
+make[1]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'
+make[2]: Entering directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/libs/libnvme'
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/libnvme-1.15/.prepared_49a522ea71558670158aa6f004ca6cd6_6664517399ebbbc92a37c5bb081b5c53_check
+. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/include/shell.sh; /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/staging_dir/host/bin/libdeflate-gzip -dc /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/dl/libnvme-1.15.tar.gz | tar -C /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/libnvme-1.15/.. -xf -
+find /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/libnvme-1.15 -mindepth 1 -type f -not -name '.*' -not -name 'version.date' -printf '%T@\n' 2>/dev/null | cut -d. -f1 | sort -n | tail -n1 > /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/libnvme-1.15/version.date
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/libnvme-1.15
+touch /home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt/build_dir/target-x86_64_musl/libnvme-1.15/.prepared_49a522ea71558670158aa6f004ca6cd6_6664517399ebbbc92a37c5bb081b5c53
+make[2]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/libs/libnvme'
+time: package/feeds/packages/libnvme/prepare#0.03#0.07#0.10
+make[1]: Leaving directory '/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/openwrt'

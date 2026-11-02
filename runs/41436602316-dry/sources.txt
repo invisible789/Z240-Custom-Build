@@ -1,0 +1,5 @@
+openwrt            a5e96c837ead549820867bb83c1ad471e39f5ace  (https://github.com/openwrt/openwrt @ a5e96c837ead549820867bb83c1ad471e39f5ace)
+packages           50a97173cfafdbb037330f59da753b21a9a0fe59  (https://github.com/openwrt/packages @ 50a97173cfafdbb037330f59da753b21a9a0fe59)
+luci               5599f42b0eb861cd0414391fb412b0947b1e4e13  (https://github.com/openwrt/luci @ 5599f42b0eb861cd0414391fb412b0947b1e4e13)
+qosmate            c5078438f8dbac8098f9d08125d4bfdc789d1ac2  (https://github.com/hudra0/qosmate @ c5078438f8dbac8098f9d08125d4bfdc789d1ac2)
+luci-app-qosmate   11c6e64f81b1ea83ed1ce45b253535e67f9a30e5  (https://github.com/hudra0/luci-app-qosmate @ 11c6e64f81b1ea83ed1ce45b253535e67f9a30e5)

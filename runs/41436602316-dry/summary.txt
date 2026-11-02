@@ -1,0 +1,14 @@
+PASS  download  (1.2G in dl/)
+PASS  host tools
+PASS  kernel patches  (KERNEL_PATCHVER:=6.18)
+PASS  package e2fsprogs  (sources unpacked and patched)
+PASS  package chrony  (sources unpacked and patched)
+PASS  package unbound  (sources unpacked and patched)
+PASS  package vsftpd  (sources unpacked and patched)
+PASS  package aria2  (sources unpacked and patched)
+PASS  package minidlna  (sources unpacked and patched)
+PASS  package nvme-cli  (sources unpacked and patched)
+PASS  package libnvme  (sources unpacked and patched)
+DRY RUN STAGES: ALL PASSED
+mode=dry  pre-checks=success  dry-stages=success  compile=skipped  post-checks=skipped
+VERDICT: SUCCESS
