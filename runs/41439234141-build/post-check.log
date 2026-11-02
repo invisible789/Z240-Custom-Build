@@ -1,0 +1,66 @@
+[post] build output (bin/targets/x86/64)
+  ok    EFI image: openwrt-x86-64-generic-ext4-combined-efi.img.gz
+  ok    image is larger than 15 MB
+  info  size: 37970263 bytes
+  info  d4482f323952cf54f351e1bb71dad02ff953b10a3f6faef8f8a2feb413427c20  openwrt-x86-64-generic-ext4-combined-efi.img.gz
+  ok    legacy-boot image present
+  ok    no squashfs image
+[post] package manifest (openwrt-x86-64-generic.manifest)
+  info  kernel - 6.18.60~9bac98b2a37f1bfdfca5cd4e62a6fc19-r1
+  ok    manifest has luci
+  ok    manifest has block-mount
+  ok    manifest has e2fsprogs
+  ok    manifest has kmod-fs-ext4
+  ok    manifest has nvme-cli
+  ok    manifest has kmod-nvme
+  ok    manifest has libnvme
+  ok    manifest has vsftpd
+  ok    manifest has luci-app-aria2
+  ok    manifest has chrony-nts
+  ok    manifest has ethtool
+  ok    manifest has luci-app-adblock
+  ok    manifest has unbound-anchor
+  ok    manifest has unbound-checkconf
+  ok    manifest has luci-app-unbound
+  ok    manifest has unbound-control
+  ok    manifest has luci-app-minidlna
+  ok    manifest has kmod-sched
+  ok    manifest has ip-full
+  ok    manifest has kmod-veth
+  ok    manifest has tc-full
+  ok    manifest has kmod-netem
+  ok    manifest has kmod-sched-ctinfo
+  ok    manifest has kmod-ifb
+  ok    manifest has kmod-sched-cake
+  ok    manifest has kmod-sched-red
+  ok    manifest has luci-lib-jsonc
+  ok    manifest has lua
+  ok    manifest has jq
+  ok    manifest has coreutils-sleep
+  ok    manifest has no chrony
+  ok    manifest has dependency aria2
+  ok    manifest has dependency unbound-daemon
+  ok    manifest has dependency adblock
+  ok    manifest has dependency minidlna
+  ok    manifest has QoSmate requirement kmod-sched
+  ok    manifest has QoSmate requirement ip-full
+  ok    manifest has QoSmate requirement kmod-veth
+  ok    manifest has QoSmate requirement tc-full
+  ok    manifest has QoSmate requirement kmod-netem
+  ok    manifest has QoSmate requirement kmod-sched-ctinfo
+  ok    manifest has QoSmate requirement kmod-ifb
+  ok    manifest has QoSmate requirement kmod-sched-cake
+  ok    manifest has QoSmate requirement kmod-sched-red
+  ok    manifest has QoSmate requirement luci-lib-jsonc
+  ok    manifest has QoSmate requirement lua
+  ok    manifest has QoSmate requirement jq
+  ok    manifest has QoSmate requirement coreutils-sleep
+[post] rootfs (build_dir/target-x86_64_musl/root-x86)
+  info  rootfs size: 82 MiB
+  ok    QoSmate files are in the rootfs, executables are +x
+  ok    backend md5 register matches the rootfs
+  ok    frontend md5 register matches the rootfs
+  ok    init script stamped in the rootfs
+  ok    stock QoSmate config is not shipped (created on first start)
+
+ALL CHECKS PASSED (post)

@@ -1,0 +1,103 @@
+[pre] pinned sources
+  ok    openwrt -> a5e96c837ead549820867bb83c1ad471e39f5ace
+  ok    packages -> 50a97173cfafdbb037330f59da753b21a9a0fe59
+  ok    luci -> 5599f42b0eb861cd0414391fb412b0947b1e4e13
+  ok    qosmate -> c5078438f8dbac8098f9d08125d4bfdc789d1ac2
+  ok    luci-app-qosmate -> 11c6e64f81b1ea83ed1ce45b253535e67f9a30e5
+  ok    kernel version is defined for x86
+  info  KERNEL_PATCHVER:=6.18
+[pre] feeds
+  ok    feeds.conf links the pinned feeds
+  ok    feed package luci (luci)
+  ok    feed package luci-app-aria2
+  ok    feed package luci-app-adblock
+  ok    feed package luci-app-unbound
+  ok    feed package luci-app-minidlna
+  ok    feed package luci-lib-jsonc
+  ok    feed package vsftpd
+  ok    feed package chrony
+  ok    feed package unbound
+  ok    feed package aria2
+  ok    feed package minidlna
+  ok    feed package adblock
+  ok    feed package nvme-cli
+  ok    feed package libnvme
+  ok    feed package jq
+  ok    feed package coreutils
+[pre] make defconfig output
+  ok    make defconfig reported nothing about the requested packages
+  info  unrelated upstream feed warnings (packages we do not select): 3 missing-dependency, 2 recursive-dependency
+  info  kconfig 'unmet direct dependencies' warnings: 0
+[pre] .config: target and image set
+  ok    target x86/64 generic
+  ok    ext4 root filesystem images
+  ok    squashfs images off
+  ok    EFI (GRUB) images on
+  ok    images are gzip-compressed
+  info  boot partition: 16 MiB, rootfs partition: 104 MiB
+  ok    Intel igb driver (i350) is in the image
+  ok    PPPoE support (WAN) is in the image
+  ok    apk is the package manager
+[pre] .config: requested packages (from z240.diffconfig)
+  ok    package luci selected
+  ok    package block-mount selected
+  ok    package e2fsprogs selected
+  ok    package kmod-fs-ext4 selected
+  ok    package nvme-cli selected
+  ok    package kmod-nvme selected
+  ok    package libnvme selected
+  ok    package vsftpd selected
+  ok    package luci-app-aria2 selected
+  ok    package chrony-nts selected
+  ok    package ethtool selected
+  ok    package luci-app-adblock selected
+  ok    package unbound-anchor selected
+  ok    package unbound-checkconf selected
+  ok    package luci-app-unbound selected
+  ok    package unbound-control selected
+  ok    package luci-app-minidlna selected
+  ok    package kmod-sched selected
+  ok    package ip-full selected
+  ok    package kmod-veth selected
+  ok    package tc-full selected
+  ok    package kmod-netem selected
+  ok    package kmod-sched-ctinfo selected
+  ok    package kmod-ifb selected
+  ok    package kmod-sched-cake selected
+  ok    package kmod-sched-red selected
+  ok    package luci-lib-jsonc selected
+  ok    package lua selected
+  ok    package jq selected
+  ok    package coreutils-sleep selected
+  ok    package chrony NOT selected
+[pre] .config: pulled in by the requested packages
+  ok    dependency aria2 selected
+  ok    dependency unbound-daemon selected
+  ok    dependency adblock selected
+  ok    dependency minidlna selected
+  ok    dependency luci-base selected
+  ok    dependency uhttpd selected
+[pre] QoSmate: staged file set (files/)
+  ok    init script stamped with a commit and channel 'snapshot'
+  ok    LuCI settings.js stamped
+  ok    every file the init script lists is staged, executables are +x
+  ok    backend md5 register matches
+  ok    frontend md5 register matches
+  ok    default config is staged (restored to /etc/config/qosmate on first start)
+  ok    stats backend is staged (Statistics and Rules pages)
+[pre] QoSmate: REQUIRED_PACKAGES from its init script are in .config
+  ok    required package kmod-sched selected
+  ok    required package ip-full selected
+  ok    required package kmod-veth selected
+  ok    required package tc-full selected
+  ok    required package kmod-netem selected
+  ok    required package kmod-sched-ctinfo selected
+  ok    required package kmod-ifb selected
+  ok    required package kmod-sched-cake selected
+  ok    required package kmod-sched-red selected
+  ok    required package luci-lib-jsonc selected
+  ok    required package lua selected
+  ok    required package jq selected
+  ok    required package coreutils-sleep selected
+
+ALL CHECKS PASSED (pre)

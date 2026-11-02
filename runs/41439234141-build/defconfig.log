@@ -1,0 +1,20 @@
+
+WARNING: Makefile 'package/feeds/packages/gst1-plugins-base/Makefile' has a dependency on 'libmesa', which does not exist
+WARNING: Makefile 'package/feeds/packages/gst1-plugins-base/Makefile' has a dependency on 'libwayland', which does not exist
+WARNING: Makefile 'package/feeds/packages/gst1-plugins-base/Makefile' has a dependency on 'libgraphene', which does not exist
+tmp/.config-package.in:109283:error: recursive dependency detected!
+tmp/.config-package.in:109283:	symbol PACKAGE_fwknopd is selected by PACKAGE_luci-app-fwknopd
+tmp/.config-package.in:69759:	symbol PACKAGE_luci-app-fwknopd depends on FWKNOPD_GPG
+/home/runner/work/Z240-Custom-Build/Z240-Custom-Build/work/src/packages/net/fwknop/Config.in:5:	symbol FWKNOPD_GPG depends on PACKAGE_fwknopd
+For a resolution refer to Documentation/kbuild/kconfig-language.rst
+subsection "Kconfig recursive dependency limitations"
+
+tmp/.config-package.in:128556:error: recursive dependency detected!
+tmp/.config-package.in:128556:	symbol PACKAGE_squeezelite-custom depends on SQUEEZELITE_WMA_ALAC
+tmp/.config-package.in:128646:	symbol SQUEEZELITE_WMA_ALAC depends on PACKAGE_squeezelite-custom
+For a resolution refer to Documentation/kbuild/kconfig-language.rst
+subsection "Kconfig recursive dependency limitations"
+
+#
+# configuration written to .config
+#

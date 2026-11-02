@@ -1,0 +1,2 @@
+mode=build  pre-checks=success  dry-stages=skipped  compile=success  post-checks=success
+VERDICT: SUCCESS

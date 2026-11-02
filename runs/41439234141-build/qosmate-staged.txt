@@ -1,0 +1,30 @@
+backend  c5078438f8dbac8098f9d08125d4bfdc789d1ac2 (snapshot)
+frontend 11c6e64f81b1ea83ed1ce45b253535e67f9a30e5 (snapshot)
+
+755 ./etc/init.d/qosmate
+755 ./etc/init.d/qosmate-autorate
+644 ./etc/qosmate-autorate-tc.sh
+755 ./etc/qosmate-autorate.sh
+644 ./etc/qosmate.d/backend_reg.md5
+644 ./etc/qosmate.d/frontend_reg.md5
+644 ./etc/qosmate.d/qosmate-defaults
+755 ./etc/qosmate.sh
+644 ./usr/lib/tc/experimental.dist
+644 ./usr/lib/tc/normal.dist
+644 ./usr/lib/tc/normmix20-64.dist
+644 ./usr/lib/tc/pareto.dist
+644 ./usr/lib/tc/paretonormal.dist
+755 ./usr/libexec/rpcd/luci.qosmate
+755 ./usr/libexec/rpcd/luci.qosmate_stats
+644 ./usr/share/luci/menu.d/luci-app-qosmate.json
+644 ./usr/share/rpcd/acl.d/luci-app-qosmate.json
+644 ./www/luci-static/resources/view/qosmate/advanced.js
+644 ./www/luci-static/resources/view/qosmate/cake.js
+644 ./www/luci-static/resources/view/qosmate/connections.js
+644 ./www/luci-static/resources/view/qosmate/custom_rules.js
+644 ./www/luci-static/resources/view/qosmate/hfsc.js
+644 ./www/luci-static/resources/view/qosmate/ipsets.js
+644 ./www/luci-static/resources/view/qosmate/ratelimits.js
+644 ./www/luci-static/resources/view/qosmate/rules.js
+644 ./www/luci-static/resources/view/qosmate/settings.js
+644 ./www/luci-static/resources/view/qosmate/statistics.js
