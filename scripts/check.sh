@@ -103,7 +103,25 @@ pre)
 
   echo "[pre] make defconfig output"
   if [ -f "$DEFCONFIG_LOG" ]; then
-      chk "no dependency on a package that does not exist" bash -c '! grep -qiE "which does not exist|recursive dependency" "$1"' _ "$DEFCONFIG_LOG"
+      # "feeds install -a" brings in thousands of packages we do not select, and upstream feeds routinely
+      # print Kconfig warnings/errors for some of them (missing deps, recursive deps). Those are reported
+      # as info. Only a message that mentions a package we request is a failure; the per-package
+      # ".config selects it" checks below are the real guarantee.
+      mine="$( { wanted_pkgs; qosmate_required; } 2>/dev/null | sort -u )"
+      mentioned=0
+      while IFS= read -r p; do
+          [ -n "$p" ] || continue
+          esc="$(printf '%s' "$p" | sed 's/[][\.*^$+?(){}|/]/\\&/g')"
+          if hits="$(grep -E "PACKAGE_${esc}([^A-Za-z0-9_+.-]|\$)|/${esc}/Makefile|'${esc}'" "$DEFCONFIG_LOG")"; then
+              bad "make defconfig reports a problem involving requested package $p"
+              printf '%s\n' "$hits" | head -n 3 | sed 's/^/          | /'
+              mentioned=1
+          fi
+      done <<< "$mine"
+      [ "$mentioned" = 0 ] && ok "make defconfig reported nothing about the requested packages"
+      n_dep="$(grep -cE 'which does not exist' "$DEFCONFIG_LOG" || true)"
+      n_rec="$(grep -cE 'recursive dependency detected' "$DEFCONFIG_LOG" || true)"
+      info "unrelated upstream feed warnings (packages we do not select): $n_dep missing-dependency, $n_rec recursive-dependency"
       n="$(grep -ciE 'unmet direct dependencies' "$DEFCONFIG_LOG" || true)"
       info "kconfig 'unmet direct dependencies' warnings: $n"
   else
