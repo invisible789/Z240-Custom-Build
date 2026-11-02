@@ -1,0 +1,50 @@
+# HP Z240 (x86/64, UEFI) - OpenWrt main + QoSmate
+# Every CONFIG_PACKAGE_*=y line below is checked against the final .config
+# (scripts/check.sh pre) and against the package manifest (scripts/check.sh post).
+
+# Target
+CONFIG_TARGET_x86=y
+CONFIG_TARGET_x86_64=y
+CONFIG_TARGET_x86_64_DEVICE_generic=y
+
+# Images: ext4 combined (EFI + legacy), default partition geometry (16 MiB boot / 104 MiB rootfs). No squashfs.
+CONFIG_TARGET_ROOTFS_EXT4FS=y
+# CONFIG_TARGET_ROOTFS_SQUASHFS is not set
+CONFIG_GRUB_EFI_IMAGES=y
+CONFIG_TARGET_IMAGES_GZIP=y
+
+# Requested packages
+CONFIG_PACKAGE_luci=y
+CONFIG_PACKAGE_block-mount=y
+CONFIG_PACKAGE_e2fsprogs=y
+CONFIG_PACKAGE_kmod-fs-ext4=y
+CONFIG_PACKAGE_nvme-cli=y
+CONFIG_PACKAGE_kmod-nvme=y
+CONFIG_PACKAGE_libnvme=y
+CONFIG_PACKAGE_vsftpd=y
+CONFIG_PACKAGE_luci-app-aria2=y
+CONFIG_PACKAGE_chrony-nts=y
+# CONFIG_PACKAGE_chrony is not set
+CONFIG_PACKAGE_ethtool=y
+CONFIG_PACKAGE_luci-app-adblock=y
+CONFIG_PACKAGE_unbound-anchor=y
+CONFIG_PACKAGE_unbound-checkconf=y
+CONFIG_PACKAGE_luci-app-unbound=y
+CONFIG_PACKAGE_unbound-control=y
+CONFIG_PACKAGE_luci-app-minidlna=y
+
+# QoSmate runtime requirements (REQUIRED_PACKAGES in its init script; the file set itself is
+# staged into files/ by scripts/stage-qosmate.sh). scripts/check.sh pre fails if upstream adds one.
+CONFIG_PACKAGE_kmod-sched=y
+CONFIG_PACKAGE_ip-full=y
+CONFIG_PACKAGE_kmod-veth=y
+CONFIG_PACKAGE_tc-full=y
+CONFIG_PACKAGE_kmod-netem=y
+CONFIG_PACKAGE_kmod-sched-ctinfo=y
+CONFIG_PACKAGE_kmod-ifb=y
+CONFIG_PACKAGE_kmod-sched-cake=y
+CONFIG_PACKAGE_kmod-sched-red=y
+CONFIG_PACKAGE_luci-lib-jsonc=y
+CONFIG_PACKAGE_lua=y
+CONFIG_PACKAGE_jq=y
+CONFIG_PACKAGE_coreutils-sleep=y

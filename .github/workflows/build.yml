@@ -1,0 +1,205 @@
+name: Z240 custom build
+
+# HP Z240 (x86/64 EFI, ext4) OpenWrt image: current main + QoSmate built in.
+#
+# Ways to start a run (no secrets are used; the only write is the ci-logs branch):
+#   * push the branch  run-dry    -> DRY RUN: config, pre-checks, downloads, host tools, patch validation. No compile.
+#   * push the branch  run-build  -> FULL BUILD: the same checks, then the whole build, post-checks, image artifact.
+#   * Actions tab -> Run workflow, dry_run ticked or not.
+#
+# Whatever the outcome, a report is pushed to the ci-logs branch (see LATEST.txt there).
+
+on:
+  push:
+    branches: [run-dry, run-build]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run only (no compile)"
+        default: true
+        type: boolean
+
+concurrency:
+  group: z240-build
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # only used to publish run reports to the ci-logs branch
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  WORK: ${{ github.workspace }}/work
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - name: Decide mode
+        id: mode
+        env:
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref_name }}
+          INPUT_DRY: ${{ inputs.dry_run }}
+        run: |
+          case "$EVENT:$REF" in
+            push:run-dry)        dry=true ;;
+            push:run-build)      dry=false ;;
+            workflow_dispatch:*) dry="$INPUT_DRY" ;;
+            *) echo "unexpected trigger: $EVENT $REF"; exit 1 ;;
+          esac
+          [ "$dry" = true ] && name=dry || name=build
+          echo "dry=$dry" >> "$GITHUB_OUTPUT"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "mode: $name (dry_run=$dry)"
+
+      - name: Checkout this repo (config, scripts)
+        uses: actions/checkout@v4
+        with:
+          path: bundle
+
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          sudo apt-get clean
+          df -h /
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential clang flex bison g++ gawk gcc-multilib \
+            g++-multilib gettext git libncurses-dev libssl-dev python3-setuptools rsync \
+            swig unzip zlib1g-dev file wget
+
+      - name: Fetch pinned sources (OpenWrt, feeds, QoSmate)
+        run: bash bundle/scripts/fetch-sources.sh "$WORK"
+
+      - name: Feeds
+        working-directory: work/openwrt
+        run: |
+          ./scripts/feeds update -a 2>&1 | tee ../feeds.log
+          ./scripts/feeds install -a 2>&1 | tee -a ../feeds.log
+
+      - name: Stage QoSmate into files/
+        run: bash bundle/scripts/stage-qosmate.sh "$WORK"
+
+      - name: Config
+        working-directory: work/openwrt
+        run: |
+          cp ../../bundle/z240.diffconfig .config
+          make defconfig 2>&1 | tee ../defconfig.log
+          grep -E '^CONFIG_PACKAGE_[^=]+=y$' .config | sed -E 's/^CONFIG_PACKAGE_([^=]+)=y$/\1/' | sort > ../selected-packages.txt
+          echo "selected packages: $(wc -l < ../selected-packages.txt)"
+
+      - name: Pre-build checks
+        id: pre
+        continue-on-error: true
+        working-directory: work/openwrt
+        run: bash ../../bundle/scripts/check.sh pre "$PWD" 2>&1 | tee ../pre-check.log
+
+      # ---- dry run -----------------------------------------------------------------------------------------
+      - name: Dry run - downloads, host tools, kernel and package patches
+        id: dry
+        if: ${{ steps.mode.outputs.dry == 'true' }}
+        continue-on-error: true
+        run: bash bundle/scripts/dry-run.sh "$WORK"
+
+      # ---- full build (only if the pre-checks passed) ---------------------------------------------------------
+      - name: Download sources
+        if: ${{ steps.mode.outputs.dry == 'false' && steps.pre.outcome == 'success' }}
+        working-directory: work/openwrt
+        run: make download -j8 2>&1 | tee ../download.log
+
+      - name: Build
+        id: compile
+        if: ${{ steps.mode.outputs.dry == 'false' && steps.pre.outcome == 'success' }}
+        working-directory: work/openwrt
+        run: |
+          set -o pipefail
+          make -j"$(nproc)" 2>&1 | tee ../build.log || make -j1 V=s 2>&1 | tee -a ../build.log
+
+      - name: Post-build checks
+        id: post
+        if: ${{ steps.mode.outputs.dry == 'false' && steps.compile.outcome == 'success' }}
+        continue-on-error: true
+        working-directory: work/openwrt
+        run: bash ../../bundle/scripts/check.sh post "$PWD" 2>&1 | tee ../post-check.log
+
+      - name: Collect output
+        if: ${{ steps.mode.outputs.dry == 'false' && steps.compile.outcome == 'success' }}
+        run: |
+          T=work/openwrt/bin/targets/x86/64
+          mkdir -p out
+          cp "$T"/*.img.gz out/
+          cp "$T"/*.manifest out/ 2>/dev/null || true
+          cp "$T"/sha256sums out/ 2>/dev/null || true
+          cp "$T"/SHA256SUMS.z240 out/ 2>/dev/null || true
+          cp "$T"/profiles.json out/ 2>/dev/null || true
+          cp work/openwrt/.config out/build.config
+          cp work/sources.txt work/qosmate-staged.txt work/selected-packages.txt out/
+          cp work/pre-check.log work/post-check.log out/ 2>/dev/null || true
+          ls -l out/
+
+      - name: Upload image
+        if: ${{ steps.mode.outputs.dry == 'false' && steps.compile.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: z240-custom-build
+          path: out/
+          retention-days: 30
+
+      # ---- reports -----------------------------------------------------------------------------------------
+      - name: Verdict
+        if: ${{ always() }}
+        id: verdict
+        env:
+          MODE: ${{ steps.mode.outputs.name }}
+          PRE: ${{ steps.pre.outcome }}
+          DRY: ${{ steps.dry.outcome }}
+          COMPILE: ${{ steps.compile.outcome }}
+          POST: ${{ steps.post.outcome }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          mkdir -p work
+          {
+            echo "mode=$MODE  pre-checks=$PRE  dry-stages=${DRY:-n/a}  compile=${COMPILE:-n/a}  post-checks=${POST:-n/a}"
+          } | tee -a work/summary.txt >> "$GITHUB_STEP_SUMMARY"
+          ok=true
+          [ "$PRE" = success ] || ok=false
+          if [ "$MODE" = dry ]; then
+            [ "$DRY" = success ] || ok=false
+          else
+            [ "$COMPILE" = success ] && [ "$POST" = success ] || ok=false
+          fi
+          [ "$JOB_STATUS" = cancelled ] && ok=false
+          if [ "$ok" = true ]; then verdict=SUCCESS; else verdict=FAILURE; fi
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+          echo "VERDICT: $verdict" | tee -a work/summary.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish report to branch ci-logs
+        if: ${{ always() }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash bundle/scripts/publish-logs.sh "$WORK" "${{ steps.mode.outputs.name }}" "${{ steps.verdict.outputs.verdict || 'ABORTED' }}"
+
+      - name: Upload full logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ github.run_id }}
+          path: |
+            work/*.log
+            work/*.txt
+            work/openwrt/.config
+            work/openwrt/logs
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Fail the run if the verdict is a failure
+        if: ${{ always() && steps.verdict.outputs.verdict != 'SUCCESS' }}
+        run: |
+          echo "Run failed; the report is on the ci-logs branch."
+          exit 1
